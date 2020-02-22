@@ -1,0 +1,4 @@
+---
+r_studio_server: https://download1.rstudio.org/desktop/bionic/amd64/
+r_studio_deb: rstudio-1.2.5033-amd64.deb
+r_studio_latest: "{{ r_studio_server }}{{ r_studio_deb }}"

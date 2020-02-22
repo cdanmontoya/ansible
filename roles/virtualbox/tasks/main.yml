@@ -1,0 +1,21 @@
+---
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: Setup Apt repository
+  shell: |
+    wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add -
+    wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | apt-key add -
+
+- name: Add Virtualbox APT repository
+  apt_repository:
+    repo: deb http://download.virtualbox.org/virtualbox/debian bionic contrib
+    state: present
+
+- name: Install VirtualBox
+  apt:
+    update_cache: yes
+    name: virtualbox-6.0
+    state: latest

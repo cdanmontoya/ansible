@@ -1,0 +1,18 @@
+- name: Execute roles
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - apt
+    - chrome
+    - spring
+    - galaxy
+    - mongo
+    - npm
+    - geerlingguy.mysql
+    - geerlingguy.docker
+    - oefenweb.r
+    - r_studio
+    - snap
+    - spring
+    - virtualbox

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Spring Tool Suite 4.5.1
+Comment=Spring Tool Suite
+Exec=/opt/software/executables/sts-4.5.1.RELEASE/SpringToolSuite4
+Icon=/opt/software/icons/sts.xpm
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Development;IDE;Java;
+

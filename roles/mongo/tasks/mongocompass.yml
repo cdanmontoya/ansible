@@ -1,0 +1,19 @@
+--- 
+- name: print url
+  debug:
+    msg: "{{ mongo_compass_community }}"
+
+- name: Download .deb file
+  get_url:
+    url: "{{ mongo_compass_community }}"
+    dest: /tmp
+    mode: 'u=rwx,g=rwx,o=rwx'
+
+- name: Install Mongo Compass
+  apt:
+    deb: /tmp/{{ mongo_compass_deb }}
+
+- name: Remove mongocompass.deb       
+  file:
+    path: /tmp/{{ mongo_compass_deb }}
+    state: absent

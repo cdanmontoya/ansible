@@ -1,0 +1,8 @@
+---
+- name: Install existing roles
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Install roles from Ansible Galaxy
+      command: ansible-galaxy install -r requirements.yml --force

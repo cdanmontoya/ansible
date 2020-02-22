@@ -1,0 +1,46 @@
+---
+# WARNING: Snap packages are available just for users in /home/$USER path
+# In order to allow users with other base path, the apparmor must be reconfigured
+- name: Install Heroku CLI
+  snap:
+    name: heroku
+    classic: yes
+    
+- name: Install VSCode
+  snap:
+    name: code
+    classic: yes
+
+- name: Install Jupyter  
+  snap:
+    name: jupyter
+    classic: yes
+
+- name: Install Android Studio
+  snap:
+    name: android-studio
+    classic: yes
+
+- name: Install Eclipse
+  snap:
+    name: eclipse
+    classic: yes
+
+- name: Install IntelliJ
+  snap:
+    name: intellij-idea-community
+    classic: yes
+
+- name: Install Postman
+  snap:
+    name: postman
+    classic: yes
+
+- name: Install Whatsdesk
+  snap:
+    name: whatsdesk
+    classic: yes
+
+- name: Install Audacity
+  snap:
+    name: audacity

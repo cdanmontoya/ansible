@@ -1,0 +1,4 @@
+---
+mongo_download_server: https://downloads.mongodb.com/compass/
+mongo_compass_deb: mongodb-compass-community_1.20.5_amd64.deb
+mongo_compass_community: "{{mongo_download_server}}{{mongo_compass_deb}}"

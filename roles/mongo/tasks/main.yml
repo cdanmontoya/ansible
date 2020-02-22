@@ -1,0 +1,6 @@
+---
+- name: Import MongoDB playbook
+  import_tasks: mongodb.yml
+
+- name: Import Mongo Compass playbook
+  import_tasks: mongocompass.yml

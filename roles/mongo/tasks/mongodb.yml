@@ -1,0 +1,29 @@
+---
+- name: Install gnupg
+  apt:
+    name: gnupg
+    state: latest
+
+- name: Import the public key
+  apt_key:
+    url: https://www.mongodb.org/static/pgp/server-4.2.asc
+    state: present
+
+- name: Create a list file for MongoDB
+  shell: echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+
+- name: Reload local package database
+  apt:
+    update_cache: yes
+
+- name: Install the MongoDB packages
+  apt:
+    name: mongodb-org
+
+- name: Start MongoDB
+  command: service mongod start
+
+- name: Enable MongoDB service
+  systemd:
+    name: mongod
+    enabled: yes

@@ -1,0 +1,24 @@
+- name: Download Node.js
+  command: "curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -"
+
+- name: Install Node.js
+  apt:
+    name: nodejs
+      
+- name: Configure npm path
+  shell: npm config set scripts-prepend-node-path auto
+
+- name: Install Angular
+  shell: npm install -g @angular/cli
+
+- name: Install Ionic
+  shell: npm install -g ionic
+
+- name: Install Expo
+  shell: npm install -g expo-cli
+
+- name: Install React Native CLI
+  shell: npm install -g react-native-cli
+
+- name: Install Yarn
+  shell: npm install -g yarn

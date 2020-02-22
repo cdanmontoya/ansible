@@ -1,0 +1,15 @@
+---
+- name: Download .deb file
+  get_url:
+    url: "{{ latest_chrome }}"
+    dest: /tmp
+    mode: 'u=rwx,g=rwx,o=rwx'
+
+- name: Install Chrome from .deb file
+  apt:
+    deb: /tmp/{{ deb_file }}
+
+- name: Remove .deb file
+  file:
+    path: /tmp/{{ deb_file }}
+    state: absent

@@ -1,0 +1,27 @@
+---
+- name: Download STS compressed file
+  get_url:
+    url: "{{ sts_latest }}"
+    dest: /tmp
+    mode: 'u=rwx,g=rwx,o=rwx'
+
+- name: Uncompress STS file
+  unarchive:
+    src: /tmp/{{ compressed_file }}
+    dest: /opt/software/executables
+    remote_src: yes
+
+- name: Copy STS icon
+  copy:
+    src: /opt/software/executables/sts-4.5.1.RELEASE/icon.xpm
+    dest: /opt/software/icons/sts.xpm
+
+- name: Copy STS desktop entry
+  copy:
+    src: STS.desktop
+    dest: /usr/share/applications/
+
+- name: Remove sts.tar.gz
+  file:
+    path: /tmp/{{ compressed_file }}
+    state: absent
