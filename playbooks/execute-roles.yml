@@ -1,0 +1,7 @@
+- name: Execute roles
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - dirs
+    - dnf

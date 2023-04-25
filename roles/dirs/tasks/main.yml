@@ -1,0 +1,10 @@
+---
+- name: Create executables dir
+  file:
+    path: /opt/software/executables
+    state: directory
+
+- name: Create icons dir
+  file:
+    path: /opt/software/icons
+    state: directory

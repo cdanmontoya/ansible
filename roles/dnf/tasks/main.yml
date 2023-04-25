@@ -1,0 +1,10 @@
+---
+- name: Update
+  dnf:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install Snapcraft
+  dnf:
+    name: snapd
+    state: latest
