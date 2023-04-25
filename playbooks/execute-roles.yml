@@ -1,7 +1,15 @@
 - name: Execute roles
   hosts: localhost
   connection: local
-  become: true
   roles:
-    - dirs
-    - dnf
+    # - dirs
+    # - dnf
+    # - snap
+    # - ohmyzsh
+    # - rstudio
+    # - python
+    
+    
+    
+    # - jvm
+    # - dev_tools

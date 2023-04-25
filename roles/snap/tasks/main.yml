@@ -1,0 +1,32 @@
+---
+# WARNING: Snap packages are available just for users in /home/$USER path
+# In order to allow users with other base path, the apparmor must be reconfigured
+---
+- name: Update
+  become: true
+  dnf:
+    update_cache: yes
+
+- name: Install Snapcraft
+  become: true
+  dnf:
+    name: snapd
+    state: latest
+
+
+- name: Create snap symbolic link
+  file:
+    src: /var/lib/snapd/snap
+    dest: /snap
+    owner: root
+    group: root
+    state: link
+
+- name: Install Slack
+  snap:
+    name: slack
+
+- name: Install Whatsdesk
+  snap:
+    name: whatsdesk
+

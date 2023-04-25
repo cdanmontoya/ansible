@@ -1,0 +1,13 @@
+# - name: Download .deb file
+#   get_url:
+#     url: "{{ r_studio_latest }}"
+#     dest: /tmp
+
+- name: Install R Studio from file
+  dnf:
+    name: "{{ r_studio_latest }}"
+
+# - name: Remove .deb file
+#   file:
+#     path: /tmp/{{ file }}
+#     state: absent

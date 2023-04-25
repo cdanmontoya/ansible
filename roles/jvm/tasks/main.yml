@@ -1,0 +1,27 @@
+---
+- name: Install alternative Java versions
+  become: true
+  dnf:
+    name:
+      - java-1.8.0-openjdk.x86_64
+      - java-11-openjdk.x86_64
+
+
+- name: Check if jEnv exists
+  stat:
+    path: ~/.jenv
+  register: stat_jenv_result
+
+- name: Clone jEnv
+  when: not stat_jenv_result.stat.exists
+  git:
+    repo: https://github.com/jenv/jenv.git
+    dest: ~/.jenv
+
+- name: Install jEnv
+  shell: echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc; echo 'eval "$(jenv init -)"' >> ~/.zshrc; 
+
+- name: Configure jEnv versions
+  shell: source ~/.zshrc; jenv add; jenv add /usr/lib/jvm/jre-1.8.0-openjdk-1.8.0.362.b09-2.fc38.x86_64; jenv add /usr/lib/jvm/jre-11-openjdk-11.0.18.0.10-1.fc38.x86_64, jenv global openjdk64-17.0.6
+  args:
+    executable: /usr/bin/zsh

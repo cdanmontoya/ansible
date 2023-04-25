@@ -1,4 +1,5 @@
 ansible_connection: local
 ansible_python_interpreter: /usr/bin/python3
-ansible_user: {{ user }}
-ansible_sudo_pass: {{ password }}
+ansible_user: cdanmontoya
+ansible_sudo_pass: Aa98110411120.
+

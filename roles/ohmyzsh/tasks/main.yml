@@ -1,0 +1,28 @@
+---
+# prerequisite: Install fonts https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/M/Regular/complete
+
+- name: Install zsh base package
+  become: true
+  dnf:
+    name: zsh
+
+# Install Oh My Zsh
+- name: Check if .zshrc exists
+  stat:
+    path: ~/.zshrc
+  register: stat_rc_result
+
+- name: Install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  when: not stat_rc_result.stat.exists
+
+- name: Install antigen plugin manager
+  shell: "curl -L git.io/antigen > ~/.antigen.zsh"
+
+- name: Copy antigenrc
+  copy:
+    src: .antigenrc
+    dest: /home/cdanmontoya/.antigenrc
+
+- name: Load antigen from zsh
+  shell: 'echo "source /home/cdanmontoya/.antigen.zsh" >> /home/cdanmontoya/.zshrc; echo "antigen init ~/.antigenrc" >> /home/cdanmontoya/.zshrc'

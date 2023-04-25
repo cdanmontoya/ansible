@@ -1,0 +1,21 @@
+---
+- name: Install IDEs
+  snap:
+    name: 
+      - code
+      - intellij-idea-community
+      - pycharm-community
+    classic: yes
+
+- name: Install Postman
+  snap:
+    name: postman
+    classic: yes
+
+- name: Install DBeaver
+  snap:
+    name: dbeaver-ce
+
+# JMeter
+# AWS CLI
+# awslocal

@@ -1,0 +1,4 @@
+---
+deb_file: google-chrome-stable_current_x86_64.rpm
+google_server: https://dl.google.com/linux/direct/
+latest_chrome: "{{ google_server }}{{ deb_file }}"

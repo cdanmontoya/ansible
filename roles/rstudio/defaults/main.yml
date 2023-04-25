@@ -1,0 +1,5 @@
+---
+main: https://download1.rstudio.org/
+distribution: electron/rhel9/x86_64/
+file: rstudio-2023.03.0-386-x86_64.rpm
+r_studio_latest: "{{ r_studio_main }}{{ r_studio_distribution }}{{ r_studio_deb }}"
